@@ -1,4 +1,5 @@
 import './App.css';
+import './normalize.css';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Pokemon from './Componet/Pokemon.js'
@@ -74,7 +75,7 @@ function App() {
             <DetailsPokemon />
           </Route>
 
-          <Route exact path='/pokedex/pokemon/:id/encounters'>
+          <Route exact path='/pokedex/pokemon/:id/encounters/:name'>
             <LocationEncounters/>
           </Route>
           
