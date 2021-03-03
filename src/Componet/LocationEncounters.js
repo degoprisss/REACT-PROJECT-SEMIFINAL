@@ -18,8 +18,8 @@ const LocationEncounters = () => {
 
     useEffect(() => {
         if (data) {
-            const renderLocation = data.data.map((values) => (
-                <p>{values.location_area.name}</p>
+            const renderLocation = data.data.map((values, index) => (
+                <p key={index}>{values.location_area.name}</p>
             ))
             setDataRender(renderLocation)
         }
