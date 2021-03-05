@@ -1,38 +1,117 @@
+
 .App {
+  background: rgb(36 40 47 / 92%);
+  font: oblique 120% cursive;
+}
+
+.titlePokemon {
+  padding-top: 3%;
+  width: 40%;
+}
+.containerCardsGeneral {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.containerCards{
+	box-shadow: 0 .125rem .25rem rgba(0,0,0, 47%);
+    border-radius: 0.5rem; 
+	border: 1px solid #0000001a;
+	margin: 4%
+}
+
+.CardsName {
+	padding: 2%;
+	text-align: center;
+}
+
+.type {
+	font-weight: bold;
+	padding-bottom: 4%; 
+	text-align: center;
+}
+
+.cardImagen {
+	padding: 8%;
+	border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: #121013; 
+	text-align: center;
+	border-bottom: 1px solid #00000024
+}
+
+.cardBody {
+	text-align: center;
+	border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+	padding: 3%;
+	background: #ccf2f4;
+}
+
+.seact {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.select {
+  padding: 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input {
+  padding-top: 3%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.containerGeneralDetails {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ContainerDetails {
+	background: #dddddd;
+    margin: 5%;
+    padding-bottom: 3%;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0, 47%);
+    border-radius: 0.5rem; 
+}
+
+.titles {
+	text-align: center;
+}
+
+.link {
+  padding-top: 3%;
+}
+
+.ButtonLogin {
+  text-align: center;
   color: white;
+  padding-top: 3%;
 }
 
-.App-link {
-  color: #61dafb;
+.Login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.linkLocation {
+	margin-top: 3%;
+}
+
+.titleLocation {
+	margin-top: 3%;
+	margin-bottom: 2%;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 3%;
+}
+
+.paginationButton {
+	margin-left: 0.3%;
 }

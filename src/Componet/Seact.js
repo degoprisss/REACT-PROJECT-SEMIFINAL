@@ -42,12 +42,12 @@ const Seact = ({ handleSeact, handleSeactSelect }) => {
 
 
     return (
-        <div>
-            <div>
+        <div className='col-lg-12 seact'>
+            <div className='input'>
                 <input type="text" onChange={(e) => setSearchTerm(e.target.value)} />
                 <button onClick={() => handleSeact(searchTerm)} >Seact</button>
             </div>
-            <div>
+            <div className='select'>
                 <form onSubmit={handleSubmit}>
                     <label>
                         <select name="" id="" onChange={handleChange}>

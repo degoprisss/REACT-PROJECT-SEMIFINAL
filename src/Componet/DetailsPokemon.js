@@ -23,18 +23,14 @@ const DetailsPokemon = () => {
             console.log(data)
             setEnconunters(data.id)
             const renderInfoArr = data.stats.map((value, index) => (
-                <div key={index}>
-                    <p>{`${value.stat.name}: ${value.base_stat}`} </p>
-                </div>
+                <span key={index}>{`${value.stat.name}: ${value.base_stat}`} </span>
             ))
-            const renderMove = data.moves.map((value) => (
-                <span>{`${value.move.name},  `} </span>
+            const renderMove = data.moves.map((value, index) => (
+                <span key={index}>{`${value.move.name},  `} </span>
             ))
 
-            const abilities = data.abilities.map((value) => (
-                // <div style={{display: 'flex'}}>
-                    <span>{`${value.ability.name}, `}</span>
-                // </div>
+            const abilities = data.abilities.map((value, index) => (
+                <span key={index}>{`${value.ability.name}, `}</span>
             ))
 
             setRenderAbilities(abilities)
@@ -45,26 +41,46 @@ const DetailsPokemon = () => {
 
     return (
         <div>
-            <h2>{name}</h2>
-            <div>
-                {data && (
-                    <div>
-                        <img src={data.sprites.front_shiny} alt={name} />
-                        <h2>Info General</h2>
-                        {dataRender}
-                        <p>Peso: {data.weight} hectogramos</p>
-                        <h2>Order</h2>
-                        <p>Order: {data.order} </p>
-                        <h2>Move</h2>
-                        {renderMoveState}
-                        <h2>Abilities</h2>
-                        {renderAbilities}
-                    </div>)}
+            <div className="containerGeneralDetails">
+                <div className="ContainerDetails col-lg-10">
+                    <h2 className="titles">{name}</h2>
+                    {data && (
+                        <div>
+                            <div className="titles">
+                                <img src={data.sprites.front_shiny} alt={name} />
+                            </div>
+                            <div className="containerInfoGeneral titles">
+                                <h2 className="titles">Info General</h2>
+                                {dataRender}
+                            </div>
+                            <div className='titles'>
+                                <h2>Peso</h2>
+                                <p>{data.weight} hectogramos</p>
+                            </div>
+                            <div className="titles">
+                                <h2>Order</h2>
+                                <p>{data.order}</p>
+                            </div>
+
+                            <div className="titles">
+                                <h2>Move</h2>
+                                {renderMoveState}
+                            </div>
+                            <div className="titles">
+                                <h2>Abilities</h2>
+                                {renderAbilities}
+                            </div>
+                            <div className="titles link">
+                                <Link to='/' style={{ padding: '2%' }} className='btn btn-warning'>Ir a el Listado</Link>
+                                {enconunters &&
+                                    <Link to={`/pokedex/pokemon/${enconunters}/encounters/${name}`} 
+                                    style={{ padding: '2%', marginLeft: '2%'}} className='btn btn-warning'>Location Encounters</Link>
+                                }
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-            <Link to='/' style={{ padding: '2%' }}>Ir a el Listado</Link>
-            {enconunters &&
-                <Link to={`/pokedex/pokemon/${enconunters}/encounters/${name}`}>Location Encounters</Link>
-            }
         </div>
 
     )

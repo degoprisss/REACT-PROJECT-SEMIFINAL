@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams, useHistory, useRouteMatch } from "react-router-dom";
+import {
+    Link,
+    useParams
+} from "react-router-dom";
 
 const LocationEncounters = () => {
     let { id, name } = useParams()
-    const [encounters, setEncounters] = useState(id)
+    const [encounters] = useState(id)
     const [data, setData] = useState()
     const [dataRender, setDataRender] = useState()
 
@@ -27,12 +30,17 @@ const LocationEncounters = () => {
 
     return (
         <div>
-            <div style={{ padding: '2%' }}>
-                {dataRender && dataRender}
-            </div>
-            <div style={{ paddingTop: '2%' }}>
-                <Link to={`/pokedex/pokemon/${name}`}>Ir atras</Link>
-                <Link to='/' style={{ padding: '2%' }}>Ir a el Listado</Link>
+            <div class="containerGeneralDetails" style={{ padding: '10%' }}>
+                <div class="ContainerDetails col-lg-10">
+                    <div class="titles">
+                        <h2 className='titleLocation'>Location del pokemon {name} </h2>
+                        {dataRender && dataRender}
+                    </div>
+                    <div class="titles linkLocation">
+                        <Link style={{ padding: '1%' }} className='btn btn-warning' to={`/pokedex/pokemon/${name}`}>Ir atras</Link>
+                        <Link  style={{ padding: '1%', marginLeft: '2%'}} className='btn btn-warning' to='/'>Ir a el Listado</Link>
+                    </div>
+                </div>
             </div>
         </div>
     )

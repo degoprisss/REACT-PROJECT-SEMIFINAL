@@ -1,11 +1,9 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import DetailsPokemon from './DetailsPokemon.js'
 import {
     Link,
-    Switch,
-    Route,
 } from "react-router-dom";
+
 
 const Pokemon = ({ name, url, type }) => {
     const [urlApi, setUrlApi] = useState()
@@ -32,9 +30,9 @@ const Pokemon = ({ name, url, type }) => {
         if (proof) {
             console.log(proof)
             const renderInfoArr = proof.stats.map((value, index) => (
-                <div key={index}>
-                    <p>{`${value.stat.name}: ${value.base_stat}`} </p>
-                </div>
+                // <div key={index}>
+                <span key={index}>{`${value.stat.name}: ${value.base_stat}, `} </span>
+                // </div>
             ))
             setRenderInfo(renderInfoArr)
         }
@@ -42,14 +40,27 @@ const Pokemon = ({ name, url, type }) => {
 
     return (
         <div>
-            <Link to={`/pokedex/pokemon/${name}`}><h2>{name}</h2></Link>
-            <img src={urlApi} alt={name} />
-            {proof &&
-                <p>Type: {proof.types.map((value) => (
-                    `${value.type.name}. `
-                ))}</p>
-            }
-            {renderInfo && renderInfo}
+           <div className="containerCardsGeneral">
+                <div className="containerCards" style={{ width: '18rem' }}>
+                    <div className="cardImagen">
+                        <img src={urlApi} alt={name} />
+                    </div>
+                    <div className="cardBody">
+                        <div className="CardsName">
+                            <Link to={`/pokedex/pokemon/${name}`}><h2>{name}</h2></Link>
+                        </div>
+                        <div className="type">
+                            {proof &&
+                                <p>Type: {proof.types.map((value, index) => (
+                                    <span key={index}>{value.type.name}</span>
+                                ))}</p>
+                            }
+                            {renderInfo && renderInfo}
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

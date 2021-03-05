@@ -1,5 +1,5 @@
 
-const Pagination = ({pageFind, lengthArray, handleChange}) => {
+const Pagination = ({ pageFind, lengthArray, handleChange }) => {
     let ArrayPagination = []
 
     for (let index = 1; index <= Math.ceil(lengthArray / pageFind); index++) {
@@ -7,10 +7,11 @@ const Pagination = ({pageFind, lengthArray, handleChange}) => {
     }
 
     return (
-        <div>
+        <div className='col-lg-8 pagination'>
             {ArrayPagination.map((number) => (
-                <a onClick={() => handleChange(number)} href="#" 
-                style={{padding: '0.4%'}} key={number}>{number}</a>
+                <a className='btn btn-warning paginationButton' onClick={() => handleChange(number)} href="#"
+                    style={{ padding: '0.4%' }} key={number}>{number}</a>
+
             ))}
         </div>
     )
